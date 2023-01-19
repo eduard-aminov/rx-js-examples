@@ -1,6 +1,8 @@
 {
     "include": ["src/**/*"],
-    "exclude": ["src/__tests__"],
+    "exclude": [
+      "__tests__"
+    ],
     "files": [
         "src/index.ts"
     ],
@@ -29,6 +31,7 @@
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
         "incremental": false,
-        "composite": false
+        "composite": false,
+        "moduleResolution":"node"
     }
 }
