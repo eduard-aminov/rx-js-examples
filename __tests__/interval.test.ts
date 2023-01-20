@@ -1,5 +1,5 @@
 import { TestScheduler } from 'rxjs/testing';
-import { finalize, from } from 'rxjs';
+import { interval, take } from 'rxjs';
 
 let testScheduler: TestScheduler;
 
@@ -9,28 +9,19 @@ beforeEach(() => {
     });
 });
 
-test('from input as array', () => {
-    const obs$ = from([ 1, 2, 3 ]);
-
+test('interval', () => {
     testScheduler.run(helpers => {
+        const obs$ = interval(1000).pipe(take(3));
+
         const { expectObservable } = helpers;
 
-        const expectedMarble = '(abc|)';
+        const expectedMarble = '1000ms a 999ms b 999ms (c|)';
         const expectedValues = {
-            a: 1,
-            b: 2,
-            c: 3,
+            a: 0,
+            b: 1,
+            c: 2,
         };
 
         expectObservable(obs$).toBe(expectedMarble, expectedValues);
     });
 });
-
-test('from input as promise', done => {
-    const obs$ = from(Promise.resolve('some value'));
-
-    obs$.pipe(finalize(() => done())).subscribe(value => {
-        expect(value).toBe('some value');
-    })
-});
-
