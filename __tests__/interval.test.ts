@@ -11,11 +11,11 @@ beforeEach(() => {
 
 test('interval', () => {
     testScheduler.run(helpers => {
-        const obs$ = interval(1000).pipe(take(3));
+        const obs$ = interval(10).pipe(take(3));
 
         const { expectObservable } = helpers;
 
-        const expectedMarble = '1000ms a 999ms b 999ms (c|)';
+        const expectedMarble = '10ms a 9ms b 9ms (c|)';
         const expectedValues = {
             a: 0,
             b: 1,
