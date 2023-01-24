@@ -1,6 +1,6 @@
 import { TestScheduler } from 'rxjs/testing';
 import { forkJoin, of } from 'rxjs';
-import { uniqArray } from '../src/custom-operators/uniq-array';
+import { uniqArray } from '../../src/custom-operators/uniq-array';
 
 let testScheduler: TestScheduler;
 
