@@ -1,4 +1,4 @@
-import { map, OperatorFunction, pipe } from 'rxjs';
+import {map, OperatorFunction, pipe} from 'rxjs';
 
 export const uniqArray = <T>(key?: T extends object ? keyof T : undefined): OperatorFunction<T[][], T[]> => {
     return pipe(
@@ -12,8 +12,8 @@ export const uniqArray = <T>(key?: T extends object ? keyof T : undefined): Oper
             const dict = new Map();
 
             for (let i = 0; i < flattenArray.length; i++) {
-                if (!dict.has(flattenArray[i]![key])) {
-                    dict.set(flattenArray[i]![key], flattenArray[i]) ;
+                if (!dict.has(flattenArray[i]?.[key])) {
+                    dict.set(flattenArray[i]?.[key], flattenArray[i]);
                 }
             }
 

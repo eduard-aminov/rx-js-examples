@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 describe('buffer', () => {
-    test('', () => {
+    test('buffer', () => {
         const intervals$ = interval(4).pipe(
             take(3)
         );
